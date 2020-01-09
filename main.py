@@ -7,7 +7,7 @@ class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         uic.loadUi('main.ui', self)
-        m = int(cur.execute("""SELECT COUNT(id) from coffe""").fetchall()[0][0])
+        m = int(cur.execute("""SELECT COUNT(id) FROM coffe""").fetchall()[0][0])
         self.tableWidget.setColumnCount(6)
         self.tableWidget.setHorizontalHeaderLabels(['название сорта', 'степень обжарки',
                                                     'молотый/в зернах', 'описание вкуса', 'цена', 'объем упаковки'])
@@ -27,7 +27,7 @@ class MyWidget(QtWidgets.QWidget):
             self.tableWidget.setItem(i - 1, 5, QtWidgets.QTableWidgetItem(str(objem[0])))
 
 
-con = sqlite3.connect("coffe.db")
+con = sqlite3.connect("coffe.sqlite")
 cur = con.cursor()
 app = QtWidgets.QApplication(sys.argv)
 ex = MyWidget()
