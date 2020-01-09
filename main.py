@@ -27,7 +27,7 @@ class MyWidget(QtWidgets.QWidget):
             self.tableWidget.setItem(i - 1, 5, QtWidgets.QTableWidgetItem(str(objem[0])))
 
 
-con = sqlite3.connect("coffe.sqlite")
+con = sqlite3.connect("coffe.db")
 cur = con.cursor()
 app = QtWidgets.QApplication(sys.argv)
 ex = MyWidget()
